@@ -30,7 +30,7 @@ public class DayNightCycle : MonoBehaviour
     }
     private void SunRotation()
     {
-        float sunRotation = Mathf.Lerp(-90, 270, timeOfDay / 24);
+        float sunRotation = Mathf.Lerp(-50, 230, timeOfDay / 24);
         sun.transform.rotation = Quaternion.Euler(sunRotation, sun.transform.rotation.y, sun.transform.rotation.z);
     }
     private void UpdateLighting()
