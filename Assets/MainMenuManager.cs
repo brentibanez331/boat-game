@@ -13,16 +13,16 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         CloseSettings();
+        CloseMenu();
+        settingsAnim.gameObject.SetActive(false);
+        menuAnim.gameObject.SetActive(false);
+    }
 
-        if (SceneManager.GetActiveScene().name.Equals("MainScene"))
-        {
-            CloseMenu();
-        }
-
-        if (SceneManager.GetActiveScene().name.Equals("MainMenu"))
-        {
-            OpenMenu();
-        }
+    public void EnableMenu()
+    {
+        settingsAnim.gameObject.SetActive(true);
+        menuAnim.gameObject.SetActive(true);
+        CloseSettings();
     }
 
     public void OpenMenu()
@@ -54,9 +54,9 @@ public class MainMenu : MonoBehaviour
         print(buttonName);
     }
 
-    public void HidePauseButton(GameObject pauseButton)
+    public void HideObject(GameObject objectToHide)
     {
-        pauseButton.SetActive(false);
+        objectToHide.SetActive(false);
     }
 
     public string GetButtonName()
