@@ -18,6 +18,11 @@ public class MainMenu : MonoBehaviour
         {
             CloseMenu();
         }
+
+        if (SceneManager.GetActiveScene().name.Equals("MainMenu"))
+        {
+            OpenMenu();
+        }
     }
 
     public void OpenMenu()
