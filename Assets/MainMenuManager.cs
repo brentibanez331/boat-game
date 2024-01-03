@@ -59,6 +59,8 @@ public class MainMenu : MonoBehaviour
         objectToHide.SetActive(false);
     }
 
+    //public void ShowSplash
+
     public void ShowObject(GameObject objectToShow)
     {
         objectToShow.SetActive(true);
