@@ -59,6 +59,11 @@ public class MainMenu : MonoBehaviour
         objectToHide.SetActive(false);
     }
 
+    public void ShowObject(GameObject objectToShow)
+    {
+        objectToShow.SetActive(true);
+    }
+
     public string GetButtonName()
     {
         return buttonName;

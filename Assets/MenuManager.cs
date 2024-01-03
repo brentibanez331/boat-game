@@ -19,5 +19,10 @@ public class MenuManager : MonoBehaviour
         {
             SceneManager.LoadScene("MainScene");
         }
+
+        if (mainMenu.GetButtonName().Equals("closemenu"))
+        {
+
+        }
     }
 }
