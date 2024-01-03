@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
+using System.Diagnostics.Tracing;
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,9 +11,13 @@ public class MainMenu : MonoBehaviour
     public Animator menuAnim;
 
     public string buttonName;
+    GameObject followTarget;
+
+    [HideInInspector] public bool gameIsPaused;
 
     private void Awake()
     {
+        gameIsPaused = false;
         CloseSettings();
         CloseMenu();
         settingsAnim.gameObject.SetActive(false);
@@ -67,5 +73,24 @@ public class MainMenu : MonoBehaviour
     public string GetButtonName()
     {
         return buttonName;
+    }
+
+    public void PauseGame(CinemachineFreeLook vCam)
+    {
+        gameIsPaused = true;
+        vCam.Follow = null;
+        vCam.LookAt = null;
+    }
+
+    public void GetFollowTarget(GameObject followTarget_)
+    {
+        followTarget = followTarget_;
+    }
+
+    public void ResumeGame(CinemachineFreeLook vCam)
+    {
+        gameIsPaused = false;
+        vCam.Follow = followTarget.transform;
+        vCam.LookAt = followTarget.transform;
     }
 }

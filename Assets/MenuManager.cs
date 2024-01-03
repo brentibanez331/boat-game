@@ -24,5 +24,11 @@ public class MenuManager : MonoBehaviour
         {
 
         }
+
+        if (mainMenu.GetButtonName().Equals("restart"))
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

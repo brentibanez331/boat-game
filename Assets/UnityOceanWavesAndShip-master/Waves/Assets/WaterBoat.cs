@@ -29,6 +29,8 @@ public class WaterBoat : MonoBehaviour
     bool collidedFloatingObj;
     GameObject FloatingObj;
 
+    public MainMenu Menu;
+
     [SerializeField]
     ScoreManager scoreManager;
     [SerializeField]
@@ -44,6 +46,17 @@ public class WaterBoat : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (Menu.gameIsPaused)
+        {
+            SteerPower = 0;
+            Power = 0;
+        }
+        else
+        {
+            SteerPower = 500;
+            Power = 10;
+        }
+
         //default direction
         var forceDirection = transform.forward;
         var steer = 0;
