@@ -42,13 +42,11 @@ public class WaterBoat : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
         StartRotation = Motor.localRotation;
         Camera = Camera.main;
-        Input.gyro.enabled = true;
     }
 
     public void FixedUpdate()
     {
-        float tiltAngle = Input.gyro.attitude.eulerAngles.y;
-        print(tiltAngle);
+        float dirX = Input.acceleration.x;
 
         if (Menu.gameIsPaused)
         {
@@ -66,10 +64,12 @@ public class WaterBoat : MonoBehaviour
         var steer = 0;
 
         //steer direction [-1,0,1]
-        if (Input.GetKey(KeyCode.A))
+        if (dirX < -0.1)
             steer = 1;
-        if (Input.GetKey(KeyCode.D))
+        if (dirX > 0.1)
             steer = -1;
+        if (dirX >= -0.1 && dirX <= 0.1)
+            steer = 0;
 
 
         //Rotational Force
