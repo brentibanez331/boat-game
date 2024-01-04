@@ -47,6 +47,9 @@ public class WaterBoat : MonoBehaviour
     public void FixedUpdate()
     {
         float dirX = Input.acceleration.x;
+        float dirZ = Input.acceleration.z;
+
+        print(dirZ);
 
         if (Menu.gameIsPaused)
         {
@@ -55,8 +58,8 @@ public class WaterBoat : MonoBehaviour
         }
         else
         {
-            SteerPower = 200f;
-            Power = 10;
+            SteerPower = 150f;
+            Power = 5;
         }
 
         //default direction
