@@ -87,7 +87,7 @@ public class WaterBoat : MonoBehaviour
             PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, forward * MaxSpeed, Power);
             print("Forward Velocity: " + Rigidbody.velocity);
         }
-        if (dirZ > 0)
+        if (Input.GetKey(KeyCode.S))
         {
             PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, -forward * MaxSpeed, Power);
             print("Reverse Velocity: " + Rigidbody.velocity);
