@@ -1,4 +1,4 @@
-﻿using Ditzelgames;
+﻿using BoatGame;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,8 +49,6 @@ public class WaterBoat : MonoBehaviour
         float dirX = Input.acceleration.x;
         float dirZ = Input.acceleration.z;
 
-        print(dirZ);
-
         if (Menu.gameIsPaused)
         {
             SteerPower = 0;
@@ -85,7 +83,6 @@ public class WaterBoat : MonoBehaviour
         //forward/backward poewr
         if (dirZ < 0)
         {
-            print(forward * MaxSpeed);
             PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, forward * MaxSpeed, Power);
         }
         if (dirZ > 0)

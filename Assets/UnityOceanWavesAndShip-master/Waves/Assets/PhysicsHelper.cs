@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Ditzelgames
+namespace BoatGame
 {
     public static class PhysicsHelper
     {
-
         public static void ApplyForceToReachVelocity(Rigidbody rigidbody, Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
         {
             if (force == 0 || velocity.magnitude == 0)
