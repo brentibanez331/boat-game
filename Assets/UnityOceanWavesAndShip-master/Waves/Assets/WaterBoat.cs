@@ -88,7 +88,7 @@ public class WaterBoat : MonoBehaviour
         if (dirZ > 0)
         {
             print(-forward * MaxSpeed);
-            PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, -forward * MaxSpeed, Power);
+            Rigidbody.AddForce(forward * Power);
         }
 
         //Motor Animation // Particle system
