@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        gameIsPaused = false;
+        gameIsPaused = true;
         CloseSettings();
         CloseMenu();
         settingsAnim.gameObject.SetActive(false);

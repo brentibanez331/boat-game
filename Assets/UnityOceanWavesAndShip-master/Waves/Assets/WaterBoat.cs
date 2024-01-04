@@ -9,7 +9,7 @@ public class WaterBoat : MonoBehaviour
 {
     //visible Properties
     public Transform Motor;
-    public float SteerPower = 500f;
+    public float SteerPower = 200f;
     public float Power = 5f;
     public float MaxSpeed = 10f;
     public float Drag = 0.1f;
@@ -53,7 +53,7 @@ public class WaterBoat : MonoBehaviour
         }
         else
         {
-            SteerPower = 500;
+            SteerPower = 200f;
             Power = 10;
         }
 
