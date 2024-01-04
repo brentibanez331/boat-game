@@ -37,7 +37,7 @@ public class WaterBoat : MonoBehaviour
 
     public void Awake()
     {
-        PickupButton.SetActive(false);
+        //PickupButton.SetActive(false);
         ParticleSystem = GetComponentInChildren<ParticleSystem>();
         Rigidbody = GetComponent<Rigidbody>();
         StartRotation = Motor.localRotation;
@@ -77,18 +77,20 @@ public class WaterBoat : MonoBehaviour
         Rigidbody.AddForceAtPosition(steer * transform.right * SteerPower / 100f, Motor.position);
 
         //compute vectors
-        var forward = Vector3.Scale(new Vector3(1,0,1), transform.forward);
+        //var forward = Vector3.Scale(new Vector3(1,0,1), transform.forward);
+        var forward = transform.forward;
         var targetVel = Vector3.zero;
 
         //forward/backward poewr
         if (dirZ < 0)
         {
             PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, forward * MaxSpeed, Power);
+            print("Forward Velocity: " + Rigidbody.velocity);
         }
         if (dirZ > 0)
         {
-            print(-forward * MaxSpeed);
-            Rigidbody.AddForce(forward * Power);
+            PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, -forward * MaxSpeed, Power);
+            print("Reverse Velocity: " + Rigidbody.velocity);
         }
 
         //Motor Animation // Particle system

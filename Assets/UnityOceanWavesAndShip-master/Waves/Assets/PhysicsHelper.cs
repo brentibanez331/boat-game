@@ -9,6 +9,7 @@ namespace BoatGame
             if (force == 0 || velocity.magnitude == 0)
                 return;
 
+            //Error is in velocity
             velocity = velocity + velocity.normalized * 0.2f * rigidbody.drag;
 
             //force = 1 => need 1 s to reach velocity (if mass is 1) => force can be max 1 / Time.fixedDeltaTime
