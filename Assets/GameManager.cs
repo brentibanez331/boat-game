@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public float remainingTime;
 
+    public int maxGoods;
+    int goodsCollected;
+
     private void Awake()
     {
         OpenQuest();
@@ -39,7 +42,12 @@ public class GameManager : MonoBehaviour
             int seconds = Mathf.FloorToInt(remainingTime % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-            if(remainingTime <= 0)
+            if(goodsCollected == maxGoods)
+            {
+                //Player won Game
+            }
+
+            if(remainingTime <= 0 && goodsCollected < maxGoods)
             {
                 remainingTime = 0;
                 minutes = 0;
@@ -49,5 +57,7 @@ public class GameManager : MonoBehaviour
                 print("GameOver");
             }
         }
+
+        
     }
 }
