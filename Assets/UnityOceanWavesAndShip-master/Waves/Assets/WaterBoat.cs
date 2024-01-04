@@ -56,8 +56,8 @@ public class WaterBoat : MonoBehaviour
         }
         else
         {
-            SteerPower = 150f;
-            Power = 5;
+            SteerPower = 50f;
+            Power = 1;
         }
 
         //default direction
@@ -65,14 +65,18 @@ public class WaterBoat : MonoBehaviour
         var steer = 0;
 
         //steer direction [-1,0,1]
-        if (dirX < -0.1)
+        if (dirX < -0.3)
             steer = 1;
-        if (dirX > 0.1)
+        if (dirX > 0.3)
             steer = -1;
-        if (dirX >= -0.1 && dirX <= 0.1)
+        if (dirX >= -0.3 && dirX <= 0.3)
+        {
             steer = 0;
-
-
+            Rigidbody.angularVelocity = new Vector3(Rigidbody.angularVelocity.x, 0, Rigidbody.angularVelocity.z);
+        }
+            
+        
+        print(dirZ);
         //Rotational Force
         Rigidbody.AddForceAtPosition(steer * transform.right * SteerPower / 100f, Motor.position);
 
@@ -82,17 +86,23 @@ public class WaterBoat : MonoBehaviour
         var targetVel = Vector3.zero;
 
         //forward/backward poewr
-        if (dirZ < 0)
+        if (dirZ < -0.3)
         {
             PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, forward * MaxSpeed, Power);
-            print("Forward Velocity: " + Rigidbody.velocity);
+            //print("Forward Velocity: " + Rigidbody.velocity);
         }
-        if (Input.GetKey(KeyCode.S))
+        /* if (dirZ > 0.4)
         {
             PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, -forward * MaxSpeed, Power);
-            print("Reverse Velocity: " + Rigidbody.velocity);
+            //print("Reverse Velocity: " + Rigidbody.velocity);
+        }*/
+        if(dirZ >= -0.3)
+        {
+            //PhysicsHelper.ApplyForceToReachVelocity(Rigidbody, forward * 0, 0);
+            Rigidbody.velocity = new Vector3(0, Rigidbody.velocity.y, 0);
         }
-
+        
+        //print(Rigidbody.velocity);
         //Motor Animation // Particle system
         Motor.SetPositionAndRotation(Motor.position, transform.rotation * StartRotation * Quaternion.Euler(0, 30f * steer, 0));
         if (ParticleSystem != null)
