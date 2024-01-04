@@ -2968,6 +2968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 380361917}
+  - component: {fileID: 380361918}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -2997,6 +2998,27 @@ RectTransform:
   m_AnchoredPosition: {x: -725, y: 317}
   m_SizeDelta: {x: 358, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &380361918
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380361916}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36441a50f5e6f074a95f46428ef1927d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &401994928
 GameObject:
   m_ObjectHideFlags: 0
@@ -4735,7 +4757,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: none
+          m_StringArgument: showgoal
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 824575572}
@@ -7030,6 +7052,7 @@ GameObject:
   - component: {fileID: 1194307643}
   - component: {fileID: 1194307645}
   - component: {fileID: 1194307644}
+  - component: {fileID: 1194307646}
   m_Layer: 5
   m_Name: Quest
   m_TagString: Untagged
@@ -7092,6 +7115,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1194307646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194307642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e379755647381a4eb20949472534e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 2127162509}
 --- !u!1 &1210041988
 GameObject:
   m_ObjectHideFlags: 0
@@ -9264,7 +9300,7 @@ GameObject:
   - component: {fileID: 1631799005}
   - component: {fileID: 1631799004}
   m_Layer: 0
-  m_Name: GameMaster
+  m_Name: ScoreManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9282,8 +9318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a2d469015138d42a64fc4ca7483dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 1586423182}
   score: 0
+  gameManager: {fileID: 2127162509}
 --- !u!4 &1631799005
 Transform:
   m_ObjectHideFlags: 0
@@ -15058,7 +15095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825900221}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.031424887, y: -0.007493645, z: 0.00023560994, w: 0.999478}
+  m_LocalRotation: {x: 0.031424884, y: -0.0074936794, z: 0.00023561099, w: 0.999478}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15588,6 +15625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1962113626}
+  - component: {fileID: 1962113627}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -15605,7 +15643,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 124570914}
   - {fileID: 567378960}
@@ -15617,6 +15655,27 @@ RectTransform:
   m_AnchoredPosition: {x: 253, y: -95}
   m_SizeDelta: {x: 394.9026, y: 102.275024}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1962113627
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962113625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aff439ebe90617c4f9fb6b1953b436f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1988214216
 GameObject:
   m_ObjectHideFlags: 0
@@ -16135,7 +16194,10 @@ MonoBehaviour:
   vCam: {fileID: 2065278579}
   timerText: {fileID: 235151975}
   remainingTime: 10
-  maxGoods: 0
+  TimerUI: {fileID: 1962113625}
+  ScoreUI: {fileID: 380361916}
+  maxGoods: 9
+  goodsCollected: 0
 --- !u!4 &2127162510
 Transform:
   m_ObjectHideFlags: 0
