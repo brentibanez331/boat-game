@@ -42,10 +42,14 @@ public class WaterBoat : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
         StartRotation = Motor.localRotation;
         Camera = Camera.main;
+        Input.gyro.enabled = true;
     }
 
     public void FixedUpdate()
     {
+        float tiltAngle = Input.gyro.attitude.eulerAngles.y;
+        print(tiltAngle);
+
         if (Menu.gameIsPaused)
         {
             SteerPower = 0;
