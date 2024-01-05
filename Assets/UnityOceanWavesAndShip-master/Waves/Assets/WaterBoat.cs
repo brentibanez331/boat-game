@@ -35,9 +35,6 @@ public class WaterBoat : MonoBehaviour
     ScoreManager scoreManager;
     [SerializeField]
 
-    //audios
-    public AudioSource pickupSFX;
-
     public void Awake()
     {
         //PickupButton.SetActive(false);
@@ -143,7 +140,6 @@ public class WaterBoat : MonoBehaviour
             collidedFloatingObj = true;
             FloatingObj = other.gameObject;
             PickupButton.SetActive(true);
-            pickupSFX.GetComponent<AudioSource>().Play();
         }
     }
 
