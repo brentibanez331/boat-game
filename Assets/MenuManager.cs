@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MenuManager : MonoBehaviour
 {
     public MainMenu mainMenu;
@@ -28,11 +29,6 @@ public class MenuManager : MonoBehaviour
         {
             string sceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(sceneName);
-        }
-
-        if (mainMenu.GetButtonName().Equals("showgoal"))
-        {
-
         }
     }
 }
