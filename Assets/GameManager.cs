@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     public int maxGoods;
     int goodsCollected;
 
+
+    //audio
+    public AudioSource timerSFX;  
+
+
     private void Awake()
     {
         OpenQuest();
@@ -32,15 +37,26 @@ public class GameManager : MonoBehaviour
         questAnim.SetBool("QuestIsClosed", true);
         playTimer = true;
     }
+    void PlayTimerSFX()
+    {
+        timerSFX.PlayOneShot(timerSFX.clip, .8f);
+    }
 
     private void Update()
     {
+        
         if (playTimer)
         {
             remainingTime -= Time.deltaTime;
             int minutes = Mathf.FloorToInt(remainingTime / 60);
             int seconds = Mathf.FloorToInt(remainingTime % 60);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            if (remainingTime <= 0 && remainingTime > -0.1)
+            {   
+                
+                PlayTimerSFX();
+            }
 
             if(goodsCollected == maxGoods)
             {
