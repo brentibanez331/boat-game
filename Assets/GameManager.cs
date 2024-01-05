@@ -13,8 +13,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public float remainingTime;
 
+    public GameObject TimerUI;
+    public GameObject ScoreUI;
+
     public int maxGoods;
-    int goodsCollected;
+    [HideInInspector]
+    public int goodsCollected;
 
 
     //audio
@@ -24,7 +28,21 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         OpenQuest();
+        HideGoal();
         mainMenu.PauseGame(vCam);
+    }
+
+    public void ShowGoal()
+    {
+        TimerUI.GetComponent<Animator>().SetBool("TimerIsClosed", false);
+        ScoreUI.GetComponent<Animator>().SetBool("ScoreIsClosed", false);
+        playTimer = true;
+    }
+
+    public void HideGoal()
+    {
+        TimerUI.GetComponent<Animator>().SetBool("TimerIsClosed", true);
+        ScoreUI.GetComponent<Animator>().SetBool("ScoreIsClosed", true);
     }
 
     public void OpenQuest()
@@ -35,7 +53,6 @@ public class GameManager : MonoBehaviour
     public void CloseQuest()
     {
         questAnim.SetBool("QuestIsClosed", true);
-        playTimer = true;
     }
     void PlayTimerSFX()
     {
@@ -71,6 +88,7 @@ public class GameManager : MonoBehaviour
                 timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
                 //Show GameOver Screen
                 print("GameOver");
+                HideGoal();
             }
         }
 
